@@ -7,11 +7,10 @@
   <meta
     name="description"
     content="Vince Gonzalez is a pharmaceutical media measurement expert specializing in omnichannel analytics, measurement frameworks, dashboarding, and ROI-driven media performance."
-  ."
   />
 
-  //api.fontshare.com" />
-  //api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
 
   <style>
     :root,
@@ -162,7 +161,7 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-4);
-      position: relative;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -170,7 +169,6 @@
       align-items: center;
       gap: var(--space-3);
       min-height: 44px;
-      min-width: 0;
     }
 
     .brand-mark {
@@ -184,7 +182,6 @@
         linear-gradient(135deg, rgba(125, 211, 252, 0.18), rgba(167, 139, 250, 0.12)),
         var(--color-surface);
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-      flex-shrink: 0;
     }
 
     .brand-mark svg {
@@ -237,15 +234,7 @@
       background: rgba(255, 255, 255, 0.03);
     }
 
-    .topbar-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      margin-left: auto;
-    }
-
-    .theme-toggle,
-    .menu-toggle {
+    .theme-toggle {
       min-width: 44px;
       min-height: 44px;
       border-radius: var(--radius-full);
@@ -255,58 +244,6 @@
       display: grid;
       place-items: center;
       box-shadow: var(--shadow-sm);
-      transition: all var(--transition);
-    }
-
-    .theme-toggle:hover,
-    .theme-toggle:focus-visible,
-    .menu-toggle:hover,
-    .menu-toggle:focus-visible {
-      border-color: rgba(125, 211, 252, 0.35);
-    }
-
-    .menu-toggle {
-      display: none;
-    }
-
-    .menu-toggle svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .mobile-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + var(--space-2));
-      right: var(--space-4);
-      left: var(--space-4);
-      background: rgba(12, 17, 24, 0.98);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      padding: var(--space-3);
-      backdrop-filter: blur(18px);
-    }
-
-    .mobile-menu[hidden] {
-      display: none;
-    }
-
-    .mobile-menu a {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      min-height: 48px;
-      padding: 0.85rem 1rem;
-      border-radius: var(--radius-md);
-      color: var(--color-text-muted);
-      transition: all var(--transition);
-    }
-
-    .mobile-menu a:hover,
-    .mobile-menu a:focus-visible {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--color-text);
     }
 
     .hero {
@@ -635,6 +572,114 @@
       letter-spacing: 0.04em;
     }
 
+    .journey-image {
+      margin-top: var(--space-5);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.6);
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .journey-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+
+    .contact-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus-visible {
+      border-color: rgba(125, 211, 252, 0.35);
+      color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+
+    .form-note {
+      margin: 0 0 var(--space-2);
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+    }
+
+    .contact-form label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--color-primary-strong);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .contact-form button {
+      min-height: 48px;
+      margin-top: var(--space-2);
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-primary-strong), var(--color-accent));
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    }
+
+    .contact-form button:hover,
+    .contact-form button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      filter: saturate(1.05);
+    }
+
     footer {
       padding: var(--space-10) 0 var(--space-12);
       color: var(--color-text-faint);
@@ -672,25 +717,6 @@
       }
     }
 
-    @media (max-width: 768px) {
-      .nav {
-        display: none;
-      }
-
-      .menu-toggle {
-        display: grid;
-      }
-
-      .mobile-menu.is-open {
-        display: grid;
-        gap: var(--space-1);
-      }
-
-      .brand-role {
-        display: none;
-      }
-    }
-
     @media (max-width: 560px) {
       .site-shell,
       .topbar-inner {
@@ -704,6 +730,15 @@
         grid-template-columns: 1fr;
       }
 
+      .nav {
+        width: 100%;
+      }
+
+      .nav a {
+        flex: 1 1 auto;
+        justify-content: center;
+      }
+
       .hero-panel,
       .card,
       .case-card,
@@ -712,14 +747,6 @@
       .tool-card,
       .stat-card {
         padding: var(--space-5);
-      }
-
-      .topbar-inner {
-        gap: var(--space-3);
-      }
-
-      .brand-name {
-        letter-spacing: 0.12em;
       }
     }
   </style>
@@ -750,38 +777,12 @@
         <a href="#career">Career Summary</a>
         <a href="#tools">Tools & Tech</a>
         <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="topbar-actions">
-        <button
-          class="menu-toggle"
-          type="button"
-          id="mobile-menu-toggle"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
-            <path d="M4 7h16" />
-            <path d="M4 12h16" />
-            <path d="M4 17h16" />
-          </svg>
-        </button>
-
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-          <span aria-hidden="true">◐</span>
-        </button>
-      </div>
-
-      <div class="mobile-menu" id="mobile-menu" hidden>
-        <a href="#about">About Me</a>
-        <a href="#building">Building the Expert</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#impact">Expertise & Impact</a>
-        <a href="#career">Career Summary</a>
-        <a href="#tools">Tools & Tech</a>
-        <a href="#education">Education</a>
-      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+        <span aria-hidden="true">◐</span>
+      </button>
     </div>
   </header>
 
@@ -849,10 +850,10 @@
 
         <article class="card">
           <h3>Core profile</h3>
-          <ul class="listst">
-            >Pharmaceutical media measurement expert with a strong omnichannel foundation.</l/li>
-            >Focused on linking analytics to HCP engagement, scripts, and business outcomes.</l/li>
-            >Known for translating complex data into clear executive-ready narratives.</li>
+          <ul class="list">
+            <li>Pharmaceutical media measurement expert with a strong omnichannel foundation.</li>
+            <li>Focused on linking analytics to HCP engagement, scripts, and business outcomes.</li>
+            <li>Known for translating complex data into clear executive-ready narratives.</li>
           </ul>
         </article>
       </div>
@@ -865,21 +866,20 @@
         <p>
           Experiences that span B2B sales, analytics, AI-driven optimization, and pharmaceutical media performance for top brands.
         </p>
-      </div>
 
-      <div style="margin-top: 1.5rem; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(148,163,184,0.2); background: rgba(15,23,42,0.6); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-        <img
-          src="images/building media expert2.jpg"
-          alt="Timeline visualization of Vince Gonzalez's media measurement journey"
-          style="max-width: 100%; height: auto; display: block;"
-        />
+        <div class="journey-image">
+          <img
+            src="images/building media expert2.jpg"
+            alt="Timeline visualization of Vince Gonzalez's media measurement journey"
+          />
+        </div>
       </div>
 
       <div class="timeline">
         <article class="timeline-card">
           <div class="timeline-year">2012 – 2020</div>
           <h3>Account Executive — Strategic Sales</h3>
-          <p>Five years B2B sales experience turning pipelines, dashboards, and client conversations into revenue, now I use that same commercial muscle to design media measurement that teams actually trust and act on.</p>
+          <p>Five years of B2B sales experience turning pipelines, dashboards, and client conversations into revenue; now I use that same commercial muscle to design media measurement teams actually trust and act on.</p>
         </article>
 
         <article class="timeline-card">
@@ -897,7 +897,7 @@
         <article class="timeline-card">
           <div class="timeline-year">2023 – 2025</div>
           <h3>Manager — WPP Media</h3>
-          <p>Led obesity media measurement and launch brand / new drug format measurement, helping modernize reporting frameworks and optimization strategy for executive level deliverables.</p>
+          <p>Led obesity media measurement and launch brand / new drug format measurement, helping modernize reporting frameworks and optimization strategy for executive-level deliverables.</p>
         </article>
 
         <article class="timeline-card">
@@ -1072,10 +1072,10 @@
 
         <article class="card">
           <h3>Career through-line</h3>
-          <ul class="listst">
-            >Built a pharmaceutical measurement career by combining business instincts with analytics depth.</l/li>
-            >Progressed from execution and reporting into strategic leadership and AI-enabled measurement design.</l/li>
-            >Consistently focused on proving value, improving efficiency, and helping teams make smarter media decisions.</li>
+          <ul class="list">
+            <li>Built a pharmaceutical measurement career by combining business instincts with analytics depth.</li>
+            <li>Progressed from execution and reporting into strategic leadership and AI-enabled measurement design.</li>
+            <li>Consistently focused on proving value, improving efficiency, and helping teams make smarter media decisions.</li>
           </ul>
         </article>
       </div>
@@ -1135,6 +1135,44 @@
       </div>
     </section>
 
+    <section class="page-section" id="contact">
+      <div class="section-header">
+        <div class="section-kicker">08 / Contact</div>
+        <h2>Contact Vince</h2>
+        <p>
+          Reach out for opportunities, collaboration, or a conversation around media measurement, analytics, and strategy.
+        </p>
+      </div>
+
+      <div class="education-layout">
+        <article class="card">
+          <h3>Connect</h3>
+          <div class="contact-links">
+            <a href="mailto:gonzalez.vincente@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/vincente-gonzalez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/v1nceg0nzalez" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <form class="contact-form" action="mailto:gonzalez.vincente@gmail.com" method="POST" enctype="text/plain">
+            <p class="form-note">Required fields are marked below.</p>
+
+            <label for="name">Name (required)</label>
+            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
+
+            <label for="email">Email (required)</label>
+            <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
+
+            <label for="message">Message (required)</label>
+            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
+            <button type="submit">Send Message</button>
+          </form>
+        </article>
+      </div>
+    </section>
+
     <footer>
     </footer>
   </main>
@@ -1143,78 +1181,21 @@
     (function () {
       const root = document.documentElement;
       const toggle = document.querySelector('[data-theme-toggle]');
-      const menuToggle = document.getElementById('mobile-menu-toggle');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
       let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
       root.setAttribute('data-theme', currentTheme);
 
-      function renderThemeIcon(theme) {
-        toggle.innerHTML = theme === 'dark'
-          ? '<span aria-hidden="true">◐</span>'
-          : '<span aria-hidden="true">◑</span>';
+      function renderIcon(theme) {
+        toggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">◐</span>' : '<span aria-hidden="true">◑</span>';
         toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
       }
 
-      function openMenu() {
-        if (!menuToggle || !mobileMenu) return;
-        mobileMenu.hidden = false;
-        mobileMenu.classList.add('is-open');
-        menuToggle.setAttribute('aria-expanded', 'true');
-        menuToggle.setAttribute('aria-label', 'Close navigation menu');
-      }
-
-      function closeMenu() {
-        if (!menuToggle || !mobileMenu) return;
-        mobileMenu.hidden = true;
-        mobileMenu.classList.remove('is-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation menu');
-      }
-
-      function toggleMenu() {
-        if (!menuToggle || !mobileMenu) return;
-        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
-        isOpen ? closeMenu() : openMenu();
-      }
-
-      renderThemeIcon(currentTheme);
-      closeMenu();
+      renderIcon(currentTheme);
 
       toggle.addEventListener('click', function () {
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', currentTheme);
-        renderThemeIcon(currentTheme);
+        renderIcon(currentTheme);
       });
-
-      if (menuToggle && mobileMenu) {
-        menuToggle.addEventListener('click', toggleMenu);
-
-        mobileLinks.forEach(link => {
-          link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape') {
-            closeMenu();
-          }
-        });
-
-        document.addEventListener('click', function (event) {
-          const clickedInsideMenu = mobileMenu.contains(event.target);
-          const clickedToggle = menuToggle.contains(event.target);
-          if (!clickedInsideMenu && !clickedToggle) {
-            closeMenu();
-          }
-        });
-
-        window.addEventListener('resize', function () {
-          if (window.innerWidth > 768) {
-            closeMenu();
-          }
-        });
-      }
     })();
   </script>
 </body>
