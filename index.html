@@ -572,6 +572,114 @@
       letter-spacing: 0.04em;
     }
 
+    .journey-image {
+      margin-top: var(--space-5);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      background: rgba(15, 23, 42, 0.6);
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .journey-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+
+    .contact-links a {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.15rem;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-weight: 600;
+      transition: all var(--transition);
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus-visible {
+      border-color: rgba(125, 211, 252, 0.35);
+      color: var(--color-primary);
+      transform: translateY(-1px);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+
+    .form-note {
+      margin: 0 0 var(--space-2);
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+    }
+
+    .contact-form label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border-radius: var(--radius-md);
+      padding: 0.95rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--color-primary-strong);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.12);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .contact-form button {
+      min-height: 48px;
+      margin-top: var(--space-2);
+      border: 1px solid rgba(125, 211, 252, 0.24);
+      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, var(--color-primary-strong), var(--color-accent));
+      color: white;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+    }
+
+    .contact-form button:hover,
+    .contact-form button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+      filter: saturate(1.05);
+    }
+
     footer {
       padding: var(--space-10) 0 var(--space-12);
       color: var(--color-text-faint);
@@ -602,459 +710,4 @@
       .result-grid,
       .tools-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h1 {
-        max-width: 12ch;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .site-shell,
-      .topbar-inner {
-        padding-left: var(--space-4);
-        padding-right: var(--space-4);
-      }
-
-      .stats-grid,
-      .result-grid,
-      .tools-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        width: 100%;
-      }
-
-      .nav a {
-        flex: 1 1 auto;
-        justify-content: center;
-      }
-
-      .hero-panel,
-      .card,
-      .case-card,
-      .timeline-card,
-      .signature-card,
-      .tool-card,
-      .stat-card {
-        padding: var(--space-5);
-      }
-    }
-  </style>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="#home" class="brand" aria-label="Vince Gonzalez home">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 17 12 5l8 12" />
-            <path d="M8.5 17h7" />
-          </svg>
-        </div>
-        <div class="brand-copy">
-          <span class="brand-name">Vince Gonzalez</span>
-          <span class="brand-role">Pharmaceutical Media Measurement Expert</span>
-        </div>
-      </a>
-
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About Me</a>
-        <a href="#building">Building the Expert</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#impact">Expertise & Impact</a>
-        <a href="#career">Career Summary</a>
-        <a href="#tools">Tools & Tech</a>
-        <a href="#education">Education</a>
-      </nav>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-        <span aria-hidden="true">◐</span>
-      </button>
-    </div>
-  </header>
-
-  <main id="main" class="site-shell">
-    <section class="hero" id="home">
-      <div>
-        <div class="eyebrow">Strategic Media Outcomes Specialist</div>
-        <h1>Media measurement, for real business impact.</h1>
-        <p>
-          Vince Gonzalez is a strategic analytics leader with 6+ years experience in pharmaceutical media measurement and attribution, building and evolving omnichannel frameworks that connect audience, channel, site, and creative performance to HCP visits, Rx conversions, and marketing ROI/ROAS.
-        </p>
-        <p>
-          He partners across media, strategy, and analytics teams to turn complex cross-channel and healthcare data into clear dashboards, optimization recommendations, and measurable financial outcomes.
-        </p>
-      </div>
-
-      <aside class="hero-panel" aria-label="Professional statement">
-        <p class="quote">
-          I turn complex data into clear insights that prove value, optimize investment, and ultimately improve patient outcomes.
-        </p>
-        <p>
-          Senior Manager-level leader focused on AI-driven analytics, executive-ready storytelling, and smarter omnichannel measurement.
-        </p>
-      </aside>
-    </section>
-
-    <section class="stats-grid" aria-label="Key impact metrics">
-      <article class="stat-card">
-        <div class="stat-value">$900M+</div>
-        <div class="stat-label">Media investment measured</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-value">30%</div>
-        <div class="stat-label">Average improvement in media ROAS</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-value">50+</div>
-        <div class="stat-label">Brands measured across therapeutic areas</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-value">20%</div>
-        <div class="stat-label">Average lift in HCP engagement</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-value">100+</div>
-        <div class="stat-label">Dashboards and reports delivered</div>
-      </article>
-    </section>
-
-    <section class="page-section" id="about">
-      <div class="section-header">
-        <div class="section-kicker">01 / About Me</div>
-        <h2>About Me</h2>
-        </p>
-      </div>
-
-      <div class="about-layout">
-        <article class="card">
-          <p class="lead">
-            Strategic media measurement leader with 6+ years in pharma and healthcare, building and evolving omnichannel frameworks that connect audience, channel, site, and creative performance to HCP visits, Rx conversions, and marketing ROI/ROAS.
-          </p>
-          <p>
-            Experienced partnering with media, strategy, and analytics teams to turn complex cross-channel and healthcare data into clear dashboards and audience-centric optimization recommendations that drive better decisions and measurable financial outcomes.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3>Core profile</h3>
-          <ul class="list">
-            <li>Pharmaceutical media measurement expert with a strong omnichannel foundation.</li>
-            <li>Focused on linking analytics to HCP engagement, scripts, and business outcomes.</li>
-            <li>Known for translating complex data into clear executive-ready narratives.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" id="building">
-      <div class="section-header">
-        <div class="section-kicker">02 / Journey</div>
-        <h2>Building a Media Measurement Expert</h2>
-        <p>
-          Experiences that spans B2B sales, analytics, AI-driven optimization, and pharmaceutical media performance for top brands.
-        </p>
-      </div>
-       <!-- IMAGE SLOT -->
-    <div class="buidling media expert2" style="margin-top: 1.5rem; border-radius: 1rem; overflow: hidden; border: 1px solid rgba(148,163,184,0.2); background: rgba(15,23,42,0.6); min-height: 220px; display: flex; align-items: center; justify-content: center;">
-      <!-- Replace the src when you have your visual ready -->
-      <img
-        src="images/building media expert2.jpg"
-        alt="Timeline visualization of Vince Gonzalez's media measurement journey"
-        style="max-width: 100%; height: auto; display: block;"
-      />
-    </div>
-    <!-- END IMAGE SLOT -->
-
-      <div class="timeline">
-        <article class="timeline-card">
-          <div class="timeline-year">2012 – 2020</div>
-          <h3>Account Executive — Strategic Sales</h3>
-          <p>Five years B2B sales experience turning pipelines, dashboards, and client conversations into revenue, now I use that same commercial muscle to design media measurement that teams actually trust and act on.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="timeline-year">2020</div>
-          <h3>Student (Reskill) — Thinkful (Chegg)</h3>
-          <p>Completed a data analytics reskilling immersion program that created the technical base for modern measurement, reporting, and visualization work.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="timeline-year">2021 – 2023</div>
-          <h3>Senior Analyst — Publicis Health Media</h3>
-          <p>Served as a key contributor to immunology media measurement and strengthened pharma-specific analytics, dashboards, and reporting discipline.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="timeline-year">2023 – 2025</div>
-          <h3>Manager — WPP Media</h3>
-          <p>Led obesity media measurement and launch brand / new drug format measurement, helping modernize reporting frameworks and optimization strategy for executive level deliverables.</p>
-        </article>
-
-        <article class="timeline-card">
-          <div class="timeline-year">2025 – Present</div>
-          <h3>Associate Director — WPP Media</h3>
-          <p>Now operating as a strategic media outcomes specialist, leading AI-driven analytics teams and shaping executive-facing measurement roadmaps.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" id="case-studies">
-      <div class="section-header">
-        <div class="section-kicker">03 / Results</div>
-        <h2>Key Case Studies</h2>
-        <p>
-          Vince connects media exposure to prescriptions, efficiency, and measurable ROI.
-        </p>
-      </div>
-
-      <div class="case-grid">
-        <article class="case-card">
-          <div class="case-meta">Case Study 01</div>
-          <h3>Optimizing Omnichannel Strategy for a Top GLP-1 / Obesity Brand</h3>
-          <p>
-            A leading GLP-1 obesity brand needed to understand which channels and audiences drove more efficient HCP visits and new scripts.
-          </p>
-
-          <div class="case-block">
-            <h4>Context</h4>
-            <p>#2 GLP-1 obesity brand needed to lift conversions to Rx by understanding which channels and audiences drove more efficient HCP visits and new scripts.</p>
-          </div>
-
-          <div class="case-block">
-            <h4>Objective</h4>
-            <p>Evolve the existing measurement and reporting engine to more accurately tie media exposure to HCP visits and Rx conversions.</p>
-          </div>
-
-          <div class="case-block">
-            <h4>Actions</h4>
-            <p>Advanced the framework tying media exposure to HCP visits and Rx conversions, then powered it with AI-driven optimizations.</p>
-          </div>
-
-          <div class="result-grid" aria-label="Obesity brand results">
-            <div class="result-tile">
-              <strong>21%</strong>
-              <span>Increase to ROAS</span>
-            </div>
-            <div class="result-tile">
-              <strong>32%</strong>
-              <span>Reduction in reporting time</span>
-            </div>
-            <div class="result-tile">
-              <strong>34%</strong>
-              <span>Increase to obesity scripts</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="case-card">
-          <div class="case-meta">Case Study 02</div>
-          <h3>Driving Unprecedented Growth with Tentpole Investment</h3>
-          <p>
-            A Super Bowl presence was used to prove that a high-cost tentpole event could drive efficient Rx conversions, not just short-term awareness.
-          </p>
-
-          <div class="case-block">
-            <h4>Context</h4>
-            <p>Super Bowl presence delivered both massive prescription volume and record-breaking efficiency for a leading therapeutic brand launching a new drug format.</p>
-          </div>
-
-          <div class="case-block">
-            <h4>Objective</h4>
-            <p>Demonstrate tangible business impact by proving the event drove efficient prescription conversions, not just fleeting awareness.</p>
-          </div>
-
-          <div class="case-block">
-            <h4>Actions</h4>
-            <p>Led omnichannel measurement and reporting for a Super Bowl-anchored surge, showing broadcast created a halo that made downstream performance media more efficient.</p>
-          </div>
-
-          <div class="result-grid" aria-label="Tentpole investment results">
-            <div class="result-tile">
-              <strong>150%</strong>
-              <span>Incremental lift to Rx YoY</span>
-            </div>
-            <div class="result-tile">
-              <strong>46%</strong>
-              <span>Improvement to NBRx efficiency</span>
-            </div>
-            <div class="result-tile">
-              <strong>292%</strong>
-              <span>Increase to conversions YoY</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" id="impact">
-      <div class="section-header">
-        <div class="section-kicker">04 / Capability</div>
-        <h2>Expertise & Impact</h2>
-        <p>
-          Measurement leader who blends technical rigor, healthcare fluency, and strong cross-functional partnership.
-        </p>
-      </div>
-
-      <div class="impact-grid">
-        <article class="card">
-          <h3>Media Measurement</h3>
-          <p>Expert in ROI, MMM, attribution, and advanced analytics to quantify media performance across channels.</p>
-        </article>
-
-        <article class="card">
-          <h3>Pharma & Healthcare Expertise</h3>
-          <p>Deep understanding of HCP, patient, payer audiences, regulations, and pharma-specific data sources.</p>
-        </article>
-
-        <article class="card">
-          <h3>Data Integration and Analytics</h3>
-          <p>Integrates claims, EMR, digital, and survey data to generate actionable insights and stronger decision-making.</p>
-        </article>
-
-        <article class="card">
-          <h3>Dashboards & Visualizations</h3>
-          <p>Builds executive-ready dashboards that simplify complex data and help teams act with confidence.</p>
-        </article>
-
-        <article class="card">
-          <h3>Stakeholder Partnership</h3>
-          <p>Partners with cross-functional teams and agencies to align goals, sharpen strategy, and demonstrate measurable impact.</p>
-        </article>
-
-        <article class="signature-card">
-          <blockquote>
-            I turn complex data into clear insights that prove value, optimize investment and ultimately improve patient outcomes.
-          </blockquote>
-          <div class="signature">— Vince Gonzalez</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" id="career">
-      <div class="section-header">
-        <div class="section-kicker">05 / Experience</div>
-        <h2>Career Summary</h2>
-        <p>
-          A steady climb from analyst to associate director, with increasing ownership over AI-driven analytics, measurement frameworks, dashboards, and executive insights.
-        </p>
-      </div>
-
-      <div class="career-layout">
-        <div class="timeline">
-          <article class="timeline-card">
-            <div class="timeline-year">2025 – Present</div>
-            <h3>Associate Director, Media Measurement — WPP Media</h3>
-            <p>Leads AI-driven media analytics teams delivering roadmap development, frameworks, and executive insights in Chicago.</p>
-          </article>
-
-          <article class="timeline-card">
-            <div class="timeline-year">2023 – 2025</div>
-            <h3>Manager, Media Measurement — WPP Media</h3>
-            <p>Piloted AI-driven media measurement, aligned KPIs, and delivered executive recommendations that strengthened business impact.</p>
-          </article>
-
-          <article class="timeline-card">
-            <div class="timeline-year">2021 – 2023</div>
-            <h3>Senior Analyst, Media Measurement — Publicis Health Media</h3>
-            <p>Managed analytics, dashboards, client reporting, and competitive best-practice insights in a pharma-focused media environment.</p>
-          </article>
-        </div>
-
-        <article class="card">
-          <h3>Career through-line</h3>
-          <ul class="list">
-            <li>Built a pharmaceutical measurement career by combining business instincts with analytics depth.</li>
-            <li>Progressed from execution and reporting into strategic leadership and AI-enabled measurement design.</li>
-            <li>Consistently focused on proving value, improving efficiency, and helping teams make smarter media decisions.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="page-section" id="tools">
-      <div class="section-header">
-        <div class="section-kicker">06 / Stack</div>
-        <h2>Tools & Tech</h2>
-        <p>
-          The PDF names a cross-functional toolkit used across analytics, dashboarding, media measurement, and reporting workflows.
-        </p>
-      </div>
-
-      <div class="tools-grid">
-        <article class="tool-card"><h3>Veeva</h3></article>
-        <article class="tool-card"><h3>IQVIA</h3></article>
-        <article class="tool-card"><h3>comscore</h3></article>
-        <article class="tool-card"><h3>Nielsen</h3></article>
-        <article class="tool-card"><h3>Adobe Analytics</h3></article>
-        <article class="tool-card"><h3>Google Analytics</h3></article>
-        <article class="tool-card"><h3>Power BI</h3></article>
-        <article class="tool-card"><h3>Tableau</h3></article>
-        <article class="tool-card"><h3>Symphony Health</h3></article>
-        <article class="tool-card"><h3>Kantar</h3></article>
-      </div>
-    </section>
-
-    <section class="page-section" id="education">
-      <div class="section-header">
-        <div class="section-kicker">07 / Foundation</div>
-        <h2>Education & Certifications</h2>
-        <p>
-          Formal marketing education paired with a focused analytics reskilling path helped create the bridge from commercial roles into technical media measurement leadership.
-        </p>
-      </div>
-
-      <div class="education-layout">
-        <div class="edu-stack">
-          <article class="card">
-            <h3>Data Analytics Certificate</h3>
-            <p>Thinkful (Chegg Skills) | 2020</p>
-          </article>
-
-          <article class="card">
-            <h3>A.S. in Business Marketing</h3>
-            <p>Morton College | 2009 – 2010</p>
-          </article>
-        </div>
-
-        <article class="card">
-          <h3>Why it matters</h3>
-          <p>
-            This combination of business marketing and analytics training supports a career built at the intersection of media, performance measurement, stakeholder communication, and practical decision-making.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <footer>
-      Built to feel sharp, minimal, and forward-looking — more performance brand than corporate brochure.
-    </footer>
-  </main>
-
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.querySelector('[data-theme-toggle]');
-      let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      root.setAttribute('data-theme', currentTheme);
-
-      function renderIcon(theme) {
-        toggle.innerHTML = theme === 'dark' ? '<span aria-hidden="true">◐</span>' : '<span aria-hidden="true">◑</span>';
-        toggle.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
-      }
-
-      renderIcon(currentTheme);
-
-      toggle.addEventListener('click', function () {
-        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', currentTheme);
-        renderIcon(currentTheme);
-      });
-    })();
-  </script>
-</body>
-</html>
+      
