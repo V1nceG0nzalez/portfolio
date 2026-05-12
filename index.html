@@ -161,7 +161,7 @@
       align-items: center;
       justify-content: space-between;
       gap: var(--space-4);
-      flex-wrap: wrap;
+      position: relative;
     }
 
     .brand {
@@ -209,22 +209,86 @@
       letter-spacing: 0.12em;
     }
 
-    .nav {
+    .nav-wrap {
+      position: relative;
+      margin-left: auto;
       display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
       align-items: center;
+      gap: var(--space-3);
+    }
+
+    .menu-toggle,
+    .theme-toggle {
+      min-height: 44px;
+      min-width: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+
+    .menu-toggle {
+      padding: 0.75rem 1rem;
+      font-weight: 600;
+    }
+
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible,
+    .theme-toggle:hover,
+    .theme-toggle:focus-visible {
+      border-color: rgba(125, 211, 252, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .menu-toggle .caret {
+      transition: transform var(--transition);
+    }
+
+    .menu-toggle[aria-expanded="true"] .caret {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 56px;
+      width: min(320px, calc(100vw - 2rem));
+      background:
+        linear-gradient(180deg, rgba(125, 211, 252, 0.06), rgba(255,255,255,0.01)),
+        var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      padding: var(--space-3);
+      display: none;
+    }
+
+    .nav-dropdown.open {
+      display: block;
+    }
+
+    .nav {
+      display: grid;
+      gap: var(--space-2);
     }
 
     .nav a {
       min-height: 44px;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      padding: 0 var(--space-4);
-      border-radius: var(--radius-full);
+      justify-content: space-between;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-md);
       color: var(--color-text-muted);
       border: 1px solid transparent;
       transition: all var(--transition);
+      background: transparent;
     }
 
     .nav a:hover,
@@ -235,15 +299,7 @@
     }
 
     .theme-toggle {
-      min-width: 44px;
-      min-height: 44px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--color-border);
-      background: var(--color-surface);
-      color: var(--color-text);
-      display: grid;
-      place-items: center;
-      box-shadow: var(--shadow-sm);
+      padding: 0;
     }
 
     .hero {
@@ -715,6 +771,10 @@
       .hero h1 {
         max-width: 12ch;
       }
+
+      .nav-dropdown {
+        right: 0;
+      }
     }
 
     @media (max-width: 560px) {
@@ -730,15 +790,6 @@
         grid-template-columns: 1fr;
       }
 
-      .nav {
-        width: 100%;
-      }
-
-      .nav a {
-        flex: 1 1 auto;
-        justify-content: center;
-      }
-
       .hero-panel,
       .card,
       .case-card,
@@ -747,6 +798,26 @@
       .tool-card,
       .stat-card {
         padding: var(--space-5);
+      }
+
+      .topbar-inner {
+        gap: var(--space-3);
+      }
+
+      .brand {
+        min-width: 0;
+      }
+
+      .brand-copy {
+        max-width: 180px;
+      }
+
+      .brand-role {
+        line-height: 1.3;
+      }
+
+      .nav-dropdown {
+        width: min(100%, calc(100vw - 2rem));
       }
     }
   </style>
@@ -769,25 +840,42 @@
         </div>
       </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#about">About Me</a>
-        <a href="#building">Building the Expert</a>
-        <a href="#case-studies">Case Studies</a>
-        <a href="#impact">Expertise & Impact</a>
-        <a href="#career">Career Summary</a>
-        <a href="#tools">Tools & Tech</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav-wrap">
+        <button
+          class="menu-toggle"
+          type="button"
+          id="menuToggle"
+          aria-expanded="false"
+          aria-controls="siteMenu"
+          aria-label="Open navigation menu"
+        >
+          <span>Menu</span>
+          <span class="caret" aria-hidden="true">▾</span>
+        </button>
 
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
-        <span aria-hidden="true">◐</span>
-      </button>
+        <div class="nav-dropdown" id="siteMenu">
+          <nav class="nav" aria-label="Primary">
+            <a href="#about">About Me</a>
+            <a href="#building">Building the Expert</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#impact">Expertise & Impact</a>
+            <a href="#career">Career Summary</a>
+            <a href="#tools">Tools & Tech</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main" class="site-shell">
     <section class="hero" id="home">
+      <div>
         <div class="eyebrow">Strategic Media Outcomes Specialist</div>
         <h1>Media measurement, for real business impact.</h1>
         <p>
@@ -1085,7 +1173,7 @@
         <div class="section-kicker">06 / Stack</div>
         <h2>Tools & Tech</h2>
         <p>
-          The PDF names a cross-functional toolkit used across analytics, dashboarding, media measurement, and reporting workflows.
+          Cross-functional toolkit used across analytics, dashboarding, media measurement, and reporting workflows.
         </p>
       </div>
 
@@ -1149,7 +1237,6 @@
           <div class="contact-links">
             <a href="mailto:gonzalez.vincente@gmail.com">Email</a>
             <a href="https://www.linkedin.com/in/vincente-gonzalez/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/v1nceg0nzalez" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </article>
 
@@ -1194,6 +1281,48 @@
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', currentTheme);
         renderIcon(currentTheme);
+      });
+    })();
+
+    (function () {
+      const menuToggle = document.getElementById('menuToggle');
+      const menu = document.getElementById('siteMenu');
+      const menuLinks = menu.querySelectorAll('a');
+
+      function closeMenu() {
+        menu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation menu');
+      }
+
+      function openMenu() {
+        menu.classList.add('open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Close navigation menu');
+      }
+
+      menuToggle.addEventListener('click', function () {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        expanded ? closeMenu() : openMenu();
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          closeMenu();
+          menuToggle.focus();
+        }
+      });
+
+      menuLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
       });
     })();
   </script>
